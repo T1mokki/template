@@ -7,12 +7,11 @@ image-version: stable
 modules:
   - type: files
     files:
-      # The path inside your repo where the udev rule is stored
+      # Copies the udev rule from your repo to the correct system location
       - source: files/usr/lib/udev/rules.d
         destination: /usr/lib/udev/rules.d
 
-  # The `akmods` module is the standard way to install additional kernel modules
+  # The `akmods` module is a tool for managing and installing kernel modules built by Universal Blue.
   - type: akmods
-    # The `akmods` module is a tool for managing and installing kernel modules built by Universal Blue[reference:3].
     install:
       - hid-tmff2
