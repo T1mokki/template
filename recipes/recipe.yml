@@ -1,5 +1,6 @@
 name: bazzite-custom
 version: 44
+cosign-version: none # This line disables the signing requirement
 
 base-image: ghcr.io/ublue-os/bazzite-gnome
 image-version: stable
@@ -7,11 +8,9 @@ image-version: stable
 modules:
   - type: files
     files:
-      # Copies the udev rule from your repo to the correct system location
-      - source: files/usr/lib/udev/rules.d
-        destination: /usr/lib/udev/rules.d
+      - from: files/usr/lib/udev/rules.d
+        to: /usr/lib/udev/rules.d
 
-  # The `akmods` module is a tool for managing and installing kernel modules built by Universal Blue.
   - type: akmods
     install:
       - hid-tmff2
