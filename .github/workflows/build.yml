@@ -1,5 +1,4 @@
 name: Build Image
-uses: blue-build/github-action@v2
 env:
     COSIGN_NO_SIGN: 1
 on:
