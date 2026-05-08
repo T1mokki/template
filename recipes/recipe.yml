@@ -1,7 +1,5 @@
 name: bazzite-custom
-version: 44
-cosign-version: none # This line disables the signing requirement
-
+description: "Custom Bazzite image with hid-tmff2 driver for Thrustmaster T248X"
 base-image: ghcr.io/ublue-os/bazzite-gnome
 image-version: stable
 
