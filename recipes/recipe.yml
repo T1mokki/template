@@ -1,13 +1,8 @@
-name: bazzite-custom
-description: "Custom Bazzite image with hid-tmff2 driver for Thrustmaster T248X"
-base-image: ghcr.io/ublue-os/bazzite-gnome
-image-version: stable
-
 modules:
   - type: files
     files:
-      - from: files/usr/lib/udev/rules.d
-        to: /usr/lib/udev/rules.d
+      - source: files/usr/lib/udev/rules.d
+        destination: /usr/lib/udev/rules.d
 
   - type: akmods
     install:
