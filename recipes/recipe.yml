@@ -4,10 +4,14 @@ base-image: ghcr.io/ublue-os/bazzite-gnome
 image-version: stable
 
 modules:
-  - type: files
-    files:
-      - source: files/
-        destination: /
+  # Create the udev rule directly using a script
+  - type: script
+    scripts:
+      - |
+        mkdir -p /usr/lib/udev/rules.d
+        echo 'KERNEL=="hidraw*", ATTRS{idVendor}=="044f", ATTRS{idProduct}=="b69a", MODE="0660", TAG+="uaccess"' > /usr/lib/udev/rules.d/99-thrustmaster-t248x.rules
+
+  # Install the kernel module
   - type: akmods
     install:
       - hid-tmff2
